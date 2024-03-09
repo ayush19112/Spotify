@@ -93,7 +93,7 @@ async function main() {
   await getSongs("songs/engsongs");
   playMusic(songs[0], true);
   async function displayAlbums() {
-    let a = await fetch(`http://127.0.0.1:5500/songs/`);
+    let a = await fetch(`./songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -110,7 +110,7 @@ async function main() {
         // console.log(e.href)
         let folder = e.href.split("/").slice(-1);
         //Get the metadata of the fodlder
-        let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+        let a = await fetch(`./songs/${folder}/info.json`);
         let response = await a.json();
         console.log(response);
         cardContainer.innerHTML +=
@@ -118,7 +118,7 @@ async function main() {
                 <div class="play">
                     <i class="fa-solid fa-play"></i>
                 </div>
-                <img src="http://127.0.0.1:5500/songs/${folder}/eng.png" alt=""/>
+                <img src="./songs/${folder}/eng.png" alt=""/>
                 <h2>${response.title}</h2>
                 <p>${response.description}</p>
             </div>`;
@@ -242,3 +242,5 @@ async function main() {
 }
 
 main();
+
+

@@ -106,7 +106,7 @@ async function main() {
       const e = array[index];
       console.log(e.href);
 
-      if (e.href.includes("/songs/")) {
+      if (e.href.includes("/songs/")&& !e.href.includes(".htaccess")) {
         // console.log(e.href)
         let folder = e.href.split("/").slice(-1);
         //Get the metadata of the fodlder
@@ -242,5 +242,3 @@ async function main() {
 }
 
 main();
-
-
